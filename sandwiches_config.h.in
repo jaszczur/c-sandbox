@@ -1,0 +1,2 @@
+#define Sandwiches_VERSION_MAJOR @Sandwiches_VERSION_MAJOR@
+#define Sandwiches_VERSION_MINOR @Sandwiches_VERSION_MINOR@

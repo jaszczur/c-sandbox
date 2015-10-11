@@ -5,6 +5,7 @@ set (Sandwiches_VERSION_MINOR 1)
 
 include(FindPkgConfig)
 enable_testing()
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 configure_file (
   "${PROJECT_SOURCE_DIR}/sandwiches_config.h.in"
   "${PROJECT_BINARY_DIR}/sandwiches_config.h"

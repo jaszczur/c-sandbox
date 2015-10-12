@@ -5,11 +5,11 @@
 int main() {
   printf("Yo niggaz!\n");
 
-  Filling one_filling[] = {FILLING_CHEESE};
-  Filling two_fillings[] = {FILLING_HAM, FILLING_CHEESE};
-  Filling three_filings[] = {FILLING_BUTTER, FILLING_CHEESE, FILLING_HAM};
+  Filling one_filling[1] = {FILLING_CHEESE};
+  Filling two_fillings[2] = {FILLING_HAM, FILLING_CHEESE};
+  Filling three_filings[3] = {FILLING_BUTTER, FILLING_CHEESE, FILLING_HAM};
 
-  Sandwich* sandwiches[] = {
+  Sandwich* sandwiches[3] = {
     make_sandwich(one_filling, 1),
     make_sandwich(two_fillings, 2),
     make_sandwich(three_filings, 3)

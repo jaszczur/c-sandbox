@@ -9,8 +9,8 @@
 static void get_bread_top(BreadSlice *slice);
 static void get_bread_bottom(BreadSlice *slice);
 static const char* describe_filling(Filling *filling);
-static Sandwich * sandwich_malloc();
-static void initialize_fillings(Sandwich *s, Filling *fs, int fc);
+static inline Sandwich * sandwich_malloc();
+static inline void initialize_fillings(Sandwich *s, Filling *fs, int fc);
 
 #define TOTAL_FILLINGS 3
 static const char* Fillings_strings[] = {"ham", "cheese", "butter"};
@@ -24,8 +24,7 @@ struct _Sandwich {
   enum _BreadSlice top_slice;
   enum _BreadSlice bottom_slice;
   Eina_Inarray *fillings;
- };
-
+};
 
 
 /**********************
@@ -65,17 +64,17 @@ void add_filling(Sandwich *sandwich, Filling filling) {
 char* describe_sandwich(Sandwich *s) {
   EINA_SAFETY_ON_NULL_RETURN_VAL(s, NULL);
   
-  Eina_Strbuf* buff = eina_strbuf_new();
+  Eina_Strbuf *buff = eina_strbuf_new();
   Filling *f;
-  int num_fillings = eina_inarray_count(s->fillings);
+  const int fc = eina_inarray_count(s->fillings);
   
   eina_strbuf_append(buff, "A tasty sandwich with ");
-  for(int i=0; i < num_fillings; i++) {
+  for(int i=0; i < fc; i++) {
     f = eina_inarray_nth(s->fillings, i);
     eina_strbuf_append(buff, describe_filling(f));
-    if (i < num_fillings - 2)
+    if (i < fc - 2)
       eina_strbuf_append(buff, ", ");
-    if (i == num_fillings - 2)
+    if (i == fc - 2)
       eina_strbuf_append(buff, " and ");
   }
   
